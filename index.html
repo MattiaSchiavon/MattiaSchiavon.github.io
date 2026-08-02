@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mattia Schiavon — Drawings</title>
 <meta name="description" content="A portfolio of graphite, charcoal, ink, and cut-paper drawings by Mattia Schiavon.">
-<!-- Open Graph. NOTE: og:image below is a relative path — once this is deployed to a
-     real domain, change it to an absolute URL (e.g. https://yourdomain.com/images/hero.webp)
-     so link previews resolve correctly in email clients and the Common App. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mattia Schiavon — Drawings">
 <meta property="og:description" content="Seven graphite, charcoal, ink, and cut-paper drawings">
@@ -17,9 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,20,400;1,20,400&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
 <style>
-/* ============================================================
-   TOKENS
-   ============================================================ */
 :root{
   --paper:      #F1F2F4;
   --paper-deep: #E6E8EB;
@@ -28,7 +22,6 @@
   --graphite-3: #8A9099;
   --ink:        #0C0F13;
   --ink-text:   #DDE2E8;
-  /* state-driven theme vars — flipped on body.inverted */
   --bg:        var(--paper);
   --fg:        var(--graphite-1);
   --fg-muted:  var(--graphite-2);
@@ -64,9 +57,6 @@ body.inverted{
     --fs-label: 11px;
   }
 }
-/* ============================================================
-   RESET / BASE
-   ============================================================ */
 *, *::before, *::after{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce){
@@ -104,7 +94,6 @@ hr.hairline{
   border-bottom: 1px dashed var(--fg-faint);
   padding-bottom: 1px;
 }
-/* section label eyebrow, e.g. "STATEMENT" / "ABOUT / CONTACT" */
 .section-label{
   font-family: var(--font-label);
   font-size: var(--fs-label);
@@ -113,9 +102,6 @@ hr.hairline{
   color: var(--fg-muted);
   margin: 0;
 }
-/* ============================================================
-   NAV
-   ============================================================ */
 .site-nav{
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -148,9 +134,6 @@ html.reduced-motion .site-nav{ transition: none; }
 .nav-links a{ padding: 4px 2px; }
 .nav-links a:hover{ text-decoration: underline; text-underline-offset: 4px; }
 .nav-links span{ color: var(--fg-faint); }
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero{
   position: relative;
   height: 100vh;
@@ -164,8 +147,6 @@ html.reduced-motion .site-nav{ transition: none; }
   height: 100%;
   object-fit: cover;
 }
-/* Functional legibility scrim, not decoration — single-hue fade in var(--paper) only,
-   per Section 5 of the spec. Never used elsewhere on the page. */
 .hero-scrim{
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -223,28 +204,12 @@ html.reduced-motion .site-nav{ transition: none; }
 @media (max-width: 600px){
   .hero-content{ max-width: 100%; }
 }
-/* ============================================================
-   STATEMENT
-   ============================================================ */
 .statement{
   padding-top: var(--section-space);
 }
 .statement-inner{
   max-width: 62ch;
 }
-.statement-placeholder{
-  margin-top: 28px;
-  padding: 24px;
-  border: 1px dashed var(--fg-faint);
-  color: var(--fg-faint);
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: var(--fs-body);
-  line-height: 1.65;
-}
-/* ============================================================
-   PLATES — shared components
-   ============================================================ */
 .plate-block{
   padding-block: var(--section-space);
 }
@@ -288,7 +253,6 @@ html.reduced-motion .site-nav{ transition: none; }
   color: var(--fg-muted);
   max-width: 34ch;
 }
-/* two-up rows (Plate 01 / 02) */
 .plate-row{
   display: grid;
   grid-template-columns: var(--img-w, 88%) 1fr;
@@ -309,7 +273,6 @@ html.reduced-motion .site-nav{ transition: none; }
   .plate-row--figure-right .wall-label{ order: unset; }
   .wall-label{ margin-top: 20px; }
 }
-/* Plate 03 / 04 — the inversion pair */
 .plate-pair{
   padding-block: var(--section-space);
 }
@@ -334,7 +297,6 @@ html.reduced-motion .site-nav{ transition: none; }
 .pair-label hr.hairline{ max-width: 220px; margin-inline: auto; }
 .pair-label .wl-meta{ margin-top: 8px; }
 .pair-label .wl-note{ margin-inline: auto; text-align: left; }
-/* Plate 05 — diptych */
 .plate-block--05 .diptych-wrap{
   max-width: 78%;
   margin-inline: auto;
@@ -361,26 +323,22 @@ html.reduced-motion .site-nav{ transition: none; }
   .diptych-labels{ flex-direction: column; gap: 20px; }
   .diptych-labels > div{ flex-basis: auto; }
 }
-/* Plate 06 — inset, centered */
-.plate-block--06 .single-wrap{
+.plate-block--06 .single-wrap,
+.plate-block--07 .single-wrap{
   max-width: 62%;
   margin-inline: auto;
 }
 @media (max-width: 600px){
-  .plate-block--06 .single-wrap{ max-width: 100%; }
+  .plate-block--06 .single-wrap,
+  .plate-block--07 .single-wrap{ max-width: 100%; }
 }
-.plate-block--06 .wall-label{
+.plate-block--06 .wall-label,
+.plate-block--07 .wall-label{
   margin-top: 24px;
   text-align: center;
 }
-.plate-block--06 .wl-meta{ margin-top: 8px; }
-/* Plate 07 — studies row */
-.studies-eyebrow{
-  margin-bottom: 32px;
-}
-/* ============================================================
-   SCROLL RAIL
-   ============================================================ */
+.plate-block--06 .wl-meta,
+.plate-block--07 .wl-meta{ margin-top: 8px; }
 .scroll-rail{
   position: fixed;
   right: 24px;
@@ -403,9 +361,6 @@ html.reduced-motion .site-nav{ transition: none; }
 @media (max-width: 900px){
   .scroll-rail{ display: none; }
 }
-/* ============================================================
-   ABOUT / FOOTER
-   ============================================================ */
 .about{ padding-block: var(--section-space); }
 .about-inner{ max-width: 62ch; margin-top: 28px; }
 .about-inner p{ margin: 0 0 18px; }
@@ -434,9 +389,6 @@ html.reduced-motion .site-nav{ transition: none; }
   font-size: 11px;
   color: var(--fg-faint);
 }
-/* ============================================================
-   LIGHTBOX
-   ============================================================ */
 .lightbox{
   position: fixed;
   inset: 0;
@@ -492,22 +444,20 @@ html.reduced-motion .lightbox{ transition: none; }
 .lightbox-prev{ left: 8px; top: 50%; transform: translateY(-50%); font-size: 32px; }
 .lightbox-next{ right: 8px; top: 50%; transform: translateY(-50%); font-size: 32px; }
 </style>
+<base target="_blank">
 </head>
 <body>
 <nav class="site-nav" aria-label="Primary">
-  <a class="nav-name" href="#top">Mattia <span class="fill-blank">Schiavon</span></a>
+  <a class="nav-name" href="#top">Mattia Schiavon</a>
   <div class="nav-links">
     <a href="#works">WORKS</a><span aria-hidden="true">·</span><a href="#about">ABOUT</a><span aria-hidden="true">·</span><a href="#contact">CONTACT</a>
   </div>
 </nav>
 <header class="hero" id="top">
-  <!-- HERO: wide crop of Plate 01 at the wrench->bark seam, auto-selected from the
-       processed Plate 01 image. Check this looks right and re-crop in Photos if the
-       seam isn't well framed — see README. -->
   <img class="hero-img" src="images/hero.webp" width="2400" height="1350" alt="Detail crop of a graphite drawing: a wrench handle dissolving into bark and sprouting leaves." loading="eager" fetchpriority="high">
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1>Mattia <span class="fill-blank">Schiavon</span></h1>
+    <h1>Mattia Schiavon</h1>
     <p>Drawings, 2024–2026</p>
   </div>
   <div class="hero-scroll" aria-hidden="true">
@@ -518,18 +468,11 @@ html.reduced-motion .lightbox{ transition: none; }
   <div class="statement-inner">
     <p class="section-label">Statement</p>
     <hr class="hairline">
-    <!-- MATTIA: 90–140 words. Handwrite this, don't polish it into nothing.
-         Three questions to answer, in your own voice:
-         1. What made you start drawing tools and objects instead of people or landscapes?
-         2. What does drawing teach you that CAD and building don't?
-         3. What are you actually looking at when you draw — light, structure, texture, memory?
-         Do not write "art has always been my passion." Do not write "I've loved drawing
-         since I was a child." Start with a specific object or a specific afternoon. -->
-    <p class="statement-placeholder">[ARTIST STATEMENT GOES HERE]</p>
+    <p>Growing up, I always loved doodling and scribbling but I never took it further than that. It wasn't until I started 3D modeling objects I wanted to build that I truly understood the importance of design and art. That realization led me to enroll in an art class at my local community college which I ended up really enjoying. This portfolio consists of some of the art pieces that I was most proud of as well as some personal drawings.</p>
   </div>
 </section>
 <section id="works">
-  <!-- ============ PLATE 01 ============ -->
+  <!-- ============ Drawing 01 ============ -->
   <section class="plate-block plate-block--01" id="plate-01" data-rail-target="01">
     <div class="wrap plate-row plate-row--figure-right">
       <a class="plate-figure" href="images/plate-01-full.webp" data-index="0">
@@ -537,17 +480,14 @@ html.reduced-motion .lightbox{ transition: none; }
              alt="Graphite drawing of a combination wrench whose handle dissolves into a mossy, cracked tree branch with sprouting leaves and roots, set against a workshop scene of a pegboard hung with tools, glass jars, and a hanging lamp.">
       </a>
       <aside class="wall-label">
-        <p class="wl-number">PLATE 01</p>
+        <p class="wl-number">Drawing 01</p>
         <hr class="hairline">
-        <!-- Suggested title — confirm or replace. Alternates: Overhaul · Maintenance · The Long Repair -->
-        <h3 class="wl-title">Second Growth</h3>
-        <p class="wl-meta">Graphite on paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
-        <!-- MATTIA: one-sentence note, your own voice -->
-        <p class="wl-note"><span class="fill-blank">[MATTIA FILLS: one-sentence note]</span></p>
+        <h3 class="wl-title">Metamorphosis</h3>
+        <p class="wl-meta">Charcoal and graphite on paper<br>18x24 in</p>
       </aside>
     </div>
   </section>
-  <!-- ============ PLATE 02 ============ -->
+  <!-- ============ Drawing 02 ============ -->
   <section class="plate-block plate-block--02" id="plate-02" data-rail-target="02">
     <div class="wrap plate-row plate-row--figure-left">
       <a class="plate-figure" href="images/plate-02-full.webp" data-index="1">
@@ -555,17 +495,15 @@ html.reduced-motion .lightbox{ transition: none; }
              alt="Graphite drawing of a lacrosse stick head merged with an acoustic guitar body, the shared form covered in overlapping fish-scale-like shingles, with the guitar's fretboard rising into the lacrosse head's strung pocket.">
       </a>
       <aside class="wall-label">
-        <p class="wl-number">PLATE 02</p>
+        <p class="wl-number">Drawing 02</p>
         <hr class="hairline">
-        <!-- Suggested title — confirm or replace. Alternates: Both Hands · Same Grip -->
-        <h3 class="wl-title">Off Season</h3>
-        <p class="wl-meta">Graphite on paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
-        <!-- MATTIA: one-sentence note, your own voice -->
-        <p class="wl-note"><span class="fill-blank">[MATTIA FILLS: one-sentence note]</span></p>
+        <h3 class="wl-title">Identity</h3>
+        <p class="wl-meta">Graphite on paper<br>18x24 in</p>
+        <p class="wl-note">These are some symbols that represent my identity.</p>
       </aside>
     </div>
   </section>
-  <!-- ============ PLATE 03 + 04 — the inversion pair ============ -->
+  <!-- ============ Drawing 03 + 04 — the inversion pair ============ -->
   <section class="plate-pair" id="plate-03-04" data-rail-target="0304">
     <div class="wrap pair-images">
       <a class="plate-figure" href="images/plate-03-full.webp" data-index="2">
@@ -578,16 +516,14 @@ html.reduced-motion .lightbox{ transition: none; }
       </a>
     </div>
     <div class="wrap pair-label">
-      <p class="wl-number">PLATE 03 · PLATE 04</p>
+      <p class="wl-number">Drawing 03 · Drawing 04</p>
       <hr class="hairline">
-      <!-- Suggested titles — confirm or replace. -->
       <span class="wl-title">Room, in Light — Room, in Dark</span>
-      <p class="wl-meta">Graphite on paper · White charcoal on black paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
-      <!-- MATTIA: one-sentence note about drawing the same room twice -->
-      <p class="wl-note"><span class="fill-blank">[MATTIA FILLS: one-sentence note]</span></p>
+      <p class="wl-meta">Graphite on paper · White charcoal on black paper<br>16x20 in · 9x11 in</p>
+      <p class="wl-note">I used two different drawing techniques to capture how light effects a composition.</p>
     </div>
   </section>
-  <!-- ============ PLATE 05 — diptych ============ -->
+  <!-- ============ Drawing 05 — diptych ============ -->
   <section class="plate-block plate-block--05" id="plate-05" data-rail-target="05">
     <div class="wrap diptych-wrap">
       <div class="diptych-panels">
@@ -602,24 +538,24 @@ html.reduced-motion .lightbox{ transition: none; }
       </div>
       <div class="diptych-labels">
         <div>
-          <p class="wl-number">PLATE 05 — LEFT</p>
+          <p class="wl-number">Drawing 05 — LEFT</p>
           <hr class="hairline">
-          <p class="wl-meta">Graphite on paper</p>
+          <p class="wl-meta">Charcoal on paper</p>
         </div>
         <div>
-          <p class="wl-number">PLATE 05 — RIGHT</p>
+          <p class="wl-number">Drawing 05 — RIGHT</p>
           <hr class="hairline">
-          <p class="wl-meta">Ink on paper</p>
+          <p class="wl-meta">Sharpie on paper</p>
         </div>
       </div>
       <div class="wall-label" style="text-align:center; margin-top:24px;">
-        <!-- Suggested title — confirm or replace. Alternates: Two Ways to Make a Shadow -->
-        <h3 class="wl-title">Range</h3>
-        <p class="wl-meta"><span class="fill-blank">[MATTIA FILLS: dimensions]</span> · <span class="fill-blank">[MATTIA FILLS: year]</span></p>
+        <h3 class="wl-title">Negative Space</h3>
+        <p class="wl-meta">8x12 in</p>
+        <p class="wl-note" style="margin-inline:auto; text-align:left; max-width:34ch; margin-top:16px;">These drawings were practice for me understanding negative space.</p>
       </div>
     </div>
   </section>
-  <!-- ============ PLATE 06 ============ -->
+  <!-- ============ Drawing 06 ============ -->
   <section class="plate-block plate-block--06" id="plate-06" data-rail-target="06">
     <div class="wrap single-wrap">
       <a class="plate-figure" href="images/plate-06-full.webp" data-index="6">
@@ -627,30 +563,28 @@ html.reduced-motion .lightbox{ transition: none; }
              alt="Hand-cut black paper silhouette of a symmetrical, fanged monster mask with jagged fur-like spikes and glaring eyes, formed entirely by removed negative space against white paper.">
       </a>
       <aside class="wall-label">
-        <p class="wl-number">PLATE 06</p>
+        <p class="wl-number">Drawing 06</p>
         <hr class="hairline">
-        <!-- Suggested title — confirm or replace. Alternates: Symmetry Study -->
-        <h3 class="wl-title">Cut Mask</h3>
-        <p class="wl-meta">Cut black paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
+        <h3 class="wl-title">Notan Mask</h3>
+        <p class="wl-meta">Cut black paper</p>
+        <p class="wl-note">I was practicing a Japanese design concept called Notan.</p>
       </aside>
     </div>
   </section>
-  <!-- ============ PLATE 07 — Studies ============ -->
+  <!-- ============ Drawing 07 ============ -->
   <section class="plate-block plate-block--07" id="plate-07" data-rail-target="07">
-    <div class="wrap">
-      <p class="section-label studies-eyebrow">Studies</p>
-      <div class="plate-row plate-row--figure-left" style="max-width:none;">
-        <a class="plate-figure" href="images/plate-07-full.webp" data-index="7">
-          <img src="images/plate-07.webp" width="1800" height="1308" loading="lazy"
-               alt="Graphite sketchbook study of a wireless earbuds charging case and a small zippered pouch, drawn on a spiral-bound sketchbook page.">
-        </a>
-        <aside class="wall-label">
-          <p class="wl-number">PLATE 07</p>
-          <hr class="hairline">
-          <h3 class="wl-title">Desk Study</h3>
-          <p class="wl-meta">Graphite on paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
-        </aside>
-      </div>
+    <div class="wrap single-wrap">
+      <a class="plate-figure" href="images/plate-07-full.webp" data-index="7">
+        <img src="images/plate-07.webp" width="1800" height="1308" loading="lazy"
+             alt="Graphite sketchbook study of a wireless earbuds charging case and a small zippered pouch, drawn on a spiral-bound sketchbook page.">
+      </a>
+      <aside class="wall-label">
+        <p class="wl-number">Drawing 07</p>
+        <hr class="hairline">
+        <h3 class="wl-title">Still life</h3>
+        <p class="wl-meta">Graphite on paper<br>9x11 in</p>
+        <p class="wl-note">I was trying to create 3D shapes using charcoal.</p>
+      </aside>
     </div>
   </section>
 </section>
@@ -658,22 +592,19 @@ html.reduced-motion .lightbox{ transition: none; }
   <p class="section-label">About / Contact</p>
   <hr class="hairline">
   <div class="about-inner">
-    <p class="about-name">Mattia <span class="fill-blank">Schiavon</span></p>
+    <p class="about-name">Mattia Schiavon</p>
     <p class="about-location">Berkeley, California</p>
-    <!-- MATTIA: 2–3 sentences. Where you study, what you build, what you're applying to. -->
-    <p class="fill-blank">[MATTIA FILLS: 2–3 sentences — where you study, what you build, what you're applying to.]</p>
+    <p>My name is Mattia Schiavon, I am a senior at Berkeley High School. I am interested in engineering and a job I might want in the future is that of a product developer.</p>
     <p class="about-email" id="contact">
-      <a class="fill-blank" href="mailto:[MATTIA FILLS: email]">[MATTIA FILLS: email]</a>
+      <a href="mailto:schiavon.mat@gmail.com">schiavon.mat@gmail.com</a><br>
+      <a href="mailto:mattiaschiavon@students.berkeley.net">mattiaschiavon@students.berkeley.net</a>
     </p>
-    <!-- Optional — uncomment and fill in if you want a résumé link or other project sites:
-    <p><a href="resume.pdf">Résumé (PDF)</a> · <a href="https://yournextmovie.example">YourNextMovie</a></p>
-    -->
   </div>
 </section>
 <footer class="site-footer wrap">
-  <p>© 2026 MATTIA <span class="fill-blank">Schiavon</span></p>
+  <p>© 2026 MATTIA Schiavon</p>
 </footer>
-<nav class="scroll-rail" aria-label="Plate index">
+<nav class="scroll-rail" aria-label="Drawing index">
   <a href="#plate-01" data-rail="01">01</a>
   <a href="#plate-02" data-rail="02">02</a>
   <a href="#plate-03-04" data-rail="0304">03 04</a>
@@ -681,10 +612,10 @@ html.reduced-motion .lightbox{ transition: none; }
   <a href="#plate-06" data-rail="06">06</a>
   <a href="#plate-07" data-rail="07">07</a>
 </nav>
-<div class="lightbox ground-paper" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Plate viewer">
+<div class="lightbox ground-paper" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Drawing viewer">
   <button class="lightbox-close" type="button" aria-label="Close">×</button>
-  <button class="lightbox-prev" type="button" aria-label="Previous plate">‹</button>
-  <button class="lightbox-next" type="button" aria-label="Next plate">›</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous drawing">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next drawing">›</button>
   <figure class="lightbox-figure">
     <img id="lightbox-img" src="" alt="">
   </figure>
@@ -695,7 +626,6 @@ html.reduced-motion .lightbox{ transition: none; }
   "use strict";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) document.documentElement.classList.add("reduced-motion");
-  /* ---------- Signature element: value inversion (Section 4) ---------- */
   var invZone = document.getElementById("plate-03-04");
   if (invZone && "IntersectionObserver" in window) {
     var invObserver = new IntersectionObserver(function (entries) {
@@ -705,7 +635,6 @@ html.reduced-motion .lightbox{ transition: none; }
     }, { rootMargin: "-35% 0px -35% 0px", threshold: 0 });
     invObserver.observe(invZone);
   }
-  /* ---------- Scroll rail active state ---------- */
   var railLinks = document.querySelectorAll(".scroll-rail a");
   var railTargets = document.querySelectorAll("[data-rail-target]");
   if (railTargets.length && "IntersectionObserver" in window) {
@@ -721,16 +650,15 @@ html.reduced-motion .lightbox{ transition: none; }
     }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
     railTargets.forEach(function (t) { railObserver.observe(t); });
   }
-  /* ---------- Lightbox ---------- */
   var plateData = [
-    { full: "images/plate-01-full.webp", alt: "Graphite drawing of a combination wrench whose handle dissolves into a mossy, cracked tree branch with sprouting leaves and roots, set against a workshop scene of a pegboard hung with tools, glass jars, and a hanging lamp.", label: "PLATE 01 — Second Growth · Graphite on paper", ground: "paper" },
-    { full: "images/plate-02-full.webp", alt: "Graphite drawing of a lacrosse stick head merged with an acoustic guitar body, the shared form covered in overlapping fish-scale-like shingles, with the guitar's fretboard rising into the lacrosse head's strung pocket.", label: "PLATE 02 — Off Season · Graphite on paper", ground: "paper" },
-    { full: "images/plate-03-full.webp", alt: "Graphite drawing of a home study in one-point perspective, with floor-to-ceiling bookshelves on the left, a desk and chair at center, and a curtained window on the right.", label: "PLATE 03 — Room, in Light · Graphite on paper", ground: "paper" },
-    { full: "images/plate-04-full.webp", alt: "White charcoal on black paper showing the same study in reverse value, light spilling through the window across the floorboards while the bookshelves and desk emerge from darkness.", label: "PLATE 04 — Room, in Dark · White charcoal on black paper", ground: "ink" },
-    { full: "images/plate-05a-full.webp", alt: "Graphite drawing of an armored warrior figure gripping a curved sword and shield, standing before a brick wall and a wooden barrel in a fantasy interior.", label: "PLATE 05 (left) — Range · Graphite on paper", ground: "paper" },
-    { full: "images/plate-05b-full.webp", alt: "Bold black ink drawing of a figure standing among clouds beneath a full moon and starry sky, rendered almost entirely in solid black with the moon and clouds left as bare white paper.", label: "PLATE 05 (right) — Range · Ink on paper", ground: "ink" },
-    { full: "images/plate-06-full.webp", alt: "Hand-cut black paper silhouette of a symmetrical, fanged monster mask with jagged fur-like spikes and glaring eyes, formed entirely by removed negative space against white paper.", label: "PLATE 06 — Cut Mask · Cut black paper", ground: "ink" },
-    { full: "images/plate-07-full.webp", alt: "Graphite sketchbook study of a wireless earbuds charging case and a small zippered pouch, drawn on a spiral-bound sketchbook page.", label: "PLATE 07 — Desk Study · Graphite on paper", ground: "paper" }
+    { full: "images/plate-01-full.webp", alt: "Graphite drawing of a combination wrench whose handle dissolves into a mossy, cracked tree branch with sprouting leaves and roots, set against a workshop scene of a pegboard hung with tools, glass jars, and a hanging lamp.", label: "Drawing 01 — Metamorphosis · Charcoal and graphite on paper", ground: "paper" },
+    { full: "images/plate-02-full.webp", alt: "Graphite drawing of a lacrosse stick head merged with an acoustic guitar body, the shared form covered in overlapping fish-scale-like shingles, with the guitar's fretboard rising into the lacrosse head's strung pocket.", label: "Drawing 02 — Identity · Graphite on paper", ground: "paper" },
+    { full: "images/plate-03-full.webp", alt: "Graphite drawing of a home study in one-point perspective, with floor-to-ceiling bookshelves on the left, a desk and chair at center, and a curtained window on the right.", label: "Drawing 03 — Room, in Light · Graphite on paper", ground: "paper" },
+    { full: "images/plate-04-full.webp", alt: "White charcoal on black paper showing the same study in reverse value, light spilling through the window across the floorboards while the bookshelves and desk emerge from darkness.", label: "Drawing 04 — Room, in Dark · White charcoal on black paper", ground: "ink" },
+    { full: "images/plate-05a-full.webp", alt: "Graphite drawing of an armored warrior figure gripping a curved sword and shield, standing before a brick wall and a wooden barrel in a fantasy interior.", label: "Drawing 05 (left) — Negative Space · Charcoal on paper", ground: "paper" },
+    { full: "images/plate-05b-full.webp", alt: "Bold black ink drawing of a figure standing among clouds beneath a full moon and starry sky, rendered almost entirely in solid black with the moon and clouds left as bare white paper.", label: "Drawing 05 (right) — Negative Space · Sharpie on paper", ground: "ink" },
+    { full: "images/plate-06-full.webp", alt: "Hand-cut black paper silhouette of a symmetrical, fanged monster mask with jagged fur-like spikes and glaring eyes, formed entirely by removed negative space against white paper.", label: "Drawing 06 — Notan Mask · Cut black paper", ground: "ink" },
+    { full: "images/plate-07-full.webp", alt: "Graphite sketchbook study of a wireless earbuds charging case and a small zippered pouch, drawn on a spiral-bound sketchbook page.", label: "Drawing 07 — Still life · Graphite on paper", ground: "paper" }
   ];
   var lightbox = document.getElementById("lightbox");
   var lbImg = document.getElementById("lightbox-img");
