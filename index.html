@@ -142,12 +142,22 @@ html.reduced-motion .site-nav{ transition: none; }
 .hero-img{
   display: block;
   width: 100%;
+  max-height: 75vh;
   height: auto;
 }
+.hero-scrim{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 48%;
+  background: linear-gradient(to top, rgba(241,242,244,0.62), rgba(241,242,244,0));
+  pointer-events: none;
+}
 .hero-content{
-  padding: 32px var(--pad) 48px;
-  max-width: var(--content-max);
-  margin-inline: auto;
+  position: absolute;
+  left: var(--pad);
+  bottom: 64px;
+  z-index: 2;
+  max-width: 90%;
 }
 .hero-content h1{
   margin: 0;
@@ -427,6 +437,7 @@ html.reduced-motion .lightbox{ transition: none; }
 </nav>
 <header class="hero" id="top">
   <img class="hero-img" src="images/hero.jpg" width="2400" height="1350" alt="Two children crouching at the base of Rodin's The Thinker statue in an outdoor museum courtyard." loading="eager" fetchpriority="high">
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
     <h1>Mattia Schiavon's Art Portfolio</h1>
     <p>Drawings, 2024–2026</p>
