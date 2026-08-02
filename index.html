@@ -8,11 +8,11 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mattia Schiavon — Drawings">
 <meta property="og:description" content="Seven graphite, charcoal, ink, and cut-paper drawings">
-<meta property="og:image" content="images/hero.webp">
+<meta property="og:image" content="hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,20,400;1,20,400&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="hero.jpg" fetchpriority="high">
 <style>
 :root{
   --paper:      #F1F2F4;
@@ -339,6 +339,11 @@ html.reduced-motion .site-nav{ transition: none; }
 }
 .plate-block--06 .wl-meta,
 .plate-block--07 .wl-meta{ margin-top: 8px; }
+/* Center the note text under Drawing 06 and 07 */
+.plate-block--06 .wl-note,
+.plate-block--07 .wl-note{
+  margin-inline: auto;
+}
 .scroll-rail{
   position: fixed;
   right: 24px;
@@ -450,11 +455,11 @@ html.reduced-motion .lightbox{ transition: none; }
 <nav class="site-nav" aria-label="Primary">
   <a class="nav-name" href="#top">Mattia Schiavon</a>
   <div class="nav-links">
-    <a href="#works">WORKS</a><span aria-hidden="true">·</span><a href="#about">ABOUT</a><span aria-hidden="true">·</span><a href="#contact">CONTACT</a>
+    <a href="#works">WORKS</a><span aria-hidden="true">·</span><a href="#about">ABOUT</a>
   </div>
 </nav>
 <header class="hero" id="top">
-  <img class="hero-img" src="images/hero.webp" width="2400" height="1350" alt="Detail crop of a graphite drawing: a wrench handle dissolving into bark and sprouting leaves." loading="eager" fetchpriority="high">
+  <img class="hero-img" src="hero.jpg" width="2400" height="1350" alt="Two children crouching at the base of Rodin's The Thinker statue in an outdoor museum courtyard." loading="eager" fetchpriority="high">
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
     <h1>Mattia Schiavon</h1>
@@ -520,7 +525,7 @@ html.reduced-motion .lightbox{ transition: none; }
       <hr class="hairline">
       <span class="wl-title">Room, in Light — Room, in Dark</span>
       <p class="wl-meta">Graphite on paper · White charcoal on black paper<br>16x20 in · 9x11 in</p>
-      <p class="wl-note">I used two different drawing techniques to capture how light affects a composition.</p>
+      <p class="wl-note">I used two different drawing techniques to capture how light effects a composition.</p>
     </div>
   </section>
   <!-- ============ Drawing 05 — diptych ============ -->
@@ -551,7 +556,7 @@ html.reduced-motion .lightbox{ transition: none; }
       <div class="wall-label" style="text-align:center; margin-top:24px;">
         <h3 class="wl-title">Negative Space</h3>
         <p class="wl-meta">8x12 in</p>
-        <p class="wl-note" style="margin-inline:auto; text-align:left; max-width:34ch; margin-top:16px;">These drawings were me trying to understand negative space.</p>
+        <p class="wl-note" style="margin-inline:auto; text-align:left; max-width:34ch; margin-top:16px;">These drawings were practice for me understanding negative space.</p>
       </div>
     </div>
   </section>
@@ -594,7 +599,7 @@ html.reduced-motion .lightbox{ transition: none; }
   <div class="about-inner">
     <p class="about-name">Mattia Schiavon</p>
     <p class="about-location">Berkeley, California</p>
-    <p>My name is Mattia Schiavon, I am a senior at Berkeley High School. I am interested in engineering and design. I designed and created this website using HTML. I hope you enjoyed looking at my art. </p>
+    <p>My name is Mattia Schiavon, I am a senior at Berkeley High School. I am interested in engineering and a job I might want in the future is that of a product developer.</p>
     <p class="about-email" id="contact">
       <a href="mailto:schiavon.mat@gmail.com">schiavon.mat@gmail.com</a><br>
       <a href="mailto:mattiaschiavon@students.berkeley.net">mattiaschiavon@students.berkeley.net</a>
