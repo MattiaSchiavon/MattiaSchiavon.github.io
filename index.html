@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mattia Schiavon — Drawings</title>
-<meta name="description" content="A portfolio of  graphite, charcoal, ink, and cut-paper drawings by Mattia Schiavon.">
-
+<meta name="description" content="A portfolio of graphite, charcoal, ink, and cut-paper drawings by Mattia Schiavon.">
 <!-- Open Graph. NOTE: og:image below is a relative path — once this is deployed to a
      real domain, change it to an absolute URL (e.g. https://yourdomain.com/images/hero.webp)
      so link previews resolve correctly in email clients and the Common App. -->
@@ -13,12 +12,10 @@
 <meta property="og:title" content="Mattia Schiavon — Drawings">
 <meta property="og:description" content="Seven graphite, charcoal, ink, and cut-paper drawings">
 <meta property="og:image" content="images/hero.webp">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,20,400;1,20,400&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
-
 <style>
 /* ============================================================
    TOKENS
@@ -31,7 +28,6 @@
   --graphite-3: #8A9099;
   --ink:        #0C0F13;
   --ink-text:   #DDE2E8;
-
   /* state-driven theme vars — flipped on body.inverted */
   --bg:        var(--paper);
   --fg:        var(--graphite-1);
@@ -39,21 +35,17 @@
   --fg-faint:  var(--graphite-3);
   --hairline:  rgba(138,144,153,0.4);
   --matte:     var(--paper-deep);
-
   --font-display: 'Archivo', sans-serif;
   --font-body:    'Newsreader', serif;
   --font-label:   'IBM Plex Mono', monospace;
-
   --content-max: 1240px;
   --pad: 40px;
   --section-space: 140px;
-
   --fs-display-xl: 72px;
   --fs-display-lg: 38px;
   --fs-body: 19px;
   --fs-label: 12px;
 }
-
 body.inverted{
   --bg:       var(--ink);
   --fg:       var(--ink-text);
@@ -62,7 +54,6 @@ body.inverted{
   --hairline: rgba(221,226,232,0.35);
   --matte:    #171B21;
 }
-
 @media (max-width: 600px){
   :root{
     --pad: 20px;
@@ -73,7 +64,6 @@ body.inverted{
     --fs-label: 11px;
   }
 }
-
 /* ============================================================
    RESET / BASE
    ============================================================ */
@@ -92,7 +82,6 @@ body{
   transition: background-color .7s ease, color .7s ease;
 }
 html.reduced-motion body{ transition: none; }
-
 img{ max-width: 100%; display: block; }
 a{ color: inherit; text-decoration: none; }
 hr.hairline{
@@ -105,19 +94,16 @@ hr.hairline{
   outline: 2px solid var(--fg);
   outline-offset: 3px;
 }
-
 .wrap{
   max-width: var(--content-max);
   margin-inline: auto;
   padding-inline: var(--pad);
 }
-
 .fill-blank{
   color: var(--fg-faint);
   border-bottom: 1px dashed var(--fg-faint);
   padding-bottom: 1px;
 }
-
 /* section label eyebrow, e.g. "STATEMENT" / "ABOUT / CONTACT" */
 .section-label{
   font-family: var(--font-label);
@@ -127,7 +113,6 @@ hr.hairline{
   color: var(--fg-muted);
   margin: 0;
 }
-
 /* ============================================================
    NAV
    ============================================================ */
@@ -163,7 +148,6 @@ html.reduced-motion .site-nav{ transition: none; }
 .nav-links a{ padding: 4px 2px; }
 .nav-links a:hover{ text-decoration: underline; text-underline-offset: 4px; }
 .nav-links span{ color: var(--fg-faint); }
-
 /* ============================================================
    HERO
    ============================================================ */
@@ -239,7 +223,6 @@ html.reduced-motion .site-nav{ transition: none; }
 @media (max-width: 600px){
   .hero-content{ max-width: 100%; }
 }
-
 /* ============================================================
    STATEMENT
    ============================================================ */
@@ -259,7 +242,6 @@ html.reduced-motion .site-nav{ transition: none; }
   font-size: var(--fs-body);
   line-height: 1.65;
 }
-
 /* ============================================================
    PLATES — shared components
    ============================================================ */
@@ -270,7 +252,6 @@ html.reduced-motion .site-nav{ transition: none; }
   display: block;
 }
 .plate-figure img{ width: 100%; height: auto; }
-
 .wall-label{
   font-family: var(--font-label);
 }
@@ -307,7 +288,6 @@ html.reduced-motion .site-nav{ transition: none; }
   color: var(--fg-muted);
   max-width: 34ch;
 }
-
 /* two-up rows (Plate 01 / 02) */
 .plate-row{
   display: grid;
@@ -320,18 +300,15 @@ html.reduced-motion .site-nav{ transition: none; }
 }
 .plate-row--figure-right .plate-figure{ order: 2; }
 .plate-row--figure-right .wall-label{ order: 1; }
-
 .plate-block--01{ --img-w: 92%; }
 .plate-block--02{ --img-w: 88%; }
 .plate-block--07 .plate-row{ --img-w: 34%; }
-
 @media (max-width: 900px){
   .plate-row{ grid-template-columns: 1fr !important; }
   .plate-row--figure-right .plate-figure,
   .plate-row--figure-right .wall-label{ order: unset; }
   .wall-label{ margin-top: 20px; }
 }
-
 /* Plate 03 / 04 — the inversion pair */
 .plate-pair{
   padding-block: var(--section-space);
@@ -357,7 +334,6 @@ html.reduced-motion .site-nav{ transition: none; }
 .pair-label hr.hairline{ max-width: 220px; margin-inline: auto; }
 .pair-label .wl-meta{ margin-top: 8px; }
 .pair-label .wl-note{ margin-inline: auto; text-align: left; }
-
 /* Plate 05 — diptych */
 .plate-block--05 .diptych-wrap{
   max-width: 78%;
@@ -385,7 +361,6 @@ html.reduced-motion .site-nav{ transition: none; }
   .diptych-labels{ flex-direction: column; gap: 20px; }
   .diptych-labels > div{ flex-basis: auto; }
 }
-
 /* Plate 06 — inset, centered */
 .plate-block--06 .single-wrap{
   max-width: 62%;
@@ -399,12 +374,10 @@ html.reduced-motion .site-nav{ transition: none; }
   text-align: center;
 }
 .plate-block--06 .wl-meta{ margin-top: 8px; }
-
 /* Plate 07 — studies row */
 .studies-eyebrow{
   margin-bottom: 32px;
 }
-
 /* ============================================================
    SCROLL RAIL
    ============================================================ */
@@ -430,7 +403,6 @@ html.reduced-motion .site-nav{ transition: none; }
 @media (max-width: 900px){
   .scroll-rail{ display: none; }
 }
-
 /* ============================================================
    ABOUT / FOOTER
    ============================================================ */
@@ -462,7 +434,6 @@ html.reduced-motion .site-nav{ transition: none; }
   font-size: 11px;
   color: var(--fg-faint);
 }
-
 /* ============================================================
    LIGHTBOX
    ============================================================ */
@@ -523,19 +494,16 @@ html.reduced-motion .lightbox{ transition: none; }
 </style>
 </head>
 <body>
-
 <nav class="site-nav" aria-label="Primary">
   <a class="nav-name" href="#top">Mattia <span class="fill-blank">Schiavon</span></a>
   <div class="nav-links">
     <a href="#works">WORKS</a><span aria-hidden="true">·</span><a href="#about">ABOUT</a><span aria-hidden="true">·</span><a href="#contact">CONTACT</a>
   </div>
 </nav>
-
 <header class="hero" id="top">
-  <!-- HERO: tight, wide crop of Plate 01 at the exact point the wrench handle turns
-       into bark — cropped so the seam reads before the subject does. Replace
-       images/hero.webp (and hero-full.webp if you add a lightbox to the hero later)
-       once Plate 01 is scanned and cropped. See Section 2 of the build spec / README. -->
+  <!-- HERO: wide crop of Plate 01 at the wrench->bark seam, auto-selected from the
+       processed Plate 01 image. Check this looks right and re-crop in Photos if the
+       seam isn't well framed — see README. -->
   <img class="hero-img" src="images/hero.webp" width="2400" height="1350" alt="Detail crop of a graphite drawing: a wrench handle dissolving into bark and sprouting leaves." loading="eager" fetchpriority="high">
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
@@ -546,7 +514,6 @@ html.reduced-motion .lightbox{ transition: none; }
     <span>Scroll</span>
   </div>
 </header>
-
 <section class="statement wrap" id="statement">
   <div class="statement-inner">
     <p class="section-label">Statement</p>
@@ -561,15 +528,13 @@ html.reduced-motion .lightbox{ transition: none; }
     <p class="statement-placeholder">[ARTIST STATEMENT GOES HERE]</p>
   </div>
 </section>
-
 <section id="works">
-
   <!-- ============ PLATE 01 ============ -->
   <section class="plate-block plate-block--01" id="plate-01" data-rail-target="01">
     <div class="wrap plate-row plate-row--figure-right">
       <a class="plate-figure" href="images/plate-01-full.webp" data-index="0">
-        <img src="images/plate-01.webp" width="1800" height="1350" loading="lazy"
-             alt="Graphite drawing of a combination wrench whose handle transforms into a mossy tree branch with sprouting leaves, lying on a workshop floor beneath a hanging lamp and a pegboard of tools.">
+        <img src="images/plate-01.webp" width="1800" height="1394" loading="lazy"
+             alt="Graphite drawing of a combination wrench whose handle dissolves into a mossy, cracked tree branch with sprouting leaves and roots, set against a workshop scene of a pegboard hung with tools, glass jars, and a hanging lamp.">
       </a>
       <aside class="wall-label">
         <p class="wl-number">PLATE 01</p>
@@ -582,13 +547,12 @@ html.reduced-motion .lightbox{ transition: none; }
       </aside>
     </div>
   </section>
-
   <!-- ============ PLATE 02 ============ -->
   <section class="plate-block plate-block--02" id="plate-02" data-rail-target="02">
     <div class="wrap plate-row plate-row--figure-left">
       <a class="plate-figure" href="images/plate-02-full.webp" data-index="1">
-        <img src="images/plate-02.webp" width="1800" height="1350" loading="lazy"
-             alt="Graphite drawing of a lacrosse stick head and an acoustic guitar overlapping into a single form, their surfaces resolving into a shared pattern of overlapping scales or shingles.">
+        <img src="images/plate-02.webp" width="1800" height="1396" loading="lazy"
+             alt="Graphite drawing of a lacrosse stick head merged with an acoustic guitar body, the shared form covered in overlapping fish-scale-like shingles, with the guitar's fretboard rising into the lacrosse head's strung pocket.">
       </a>
       <aside class="wall-label">
         <p class="wl-number">PLATE 02</p>
@@ -601,17 +565,16 @@ html.reduced-motion .lightbox{ transition: none; }
       </aside>
     </div>
   </section>
-
   <!-- ============ PLATE 03 + 04 — the inversion pair ============ -->
   <section class="plate-pair" id="plate-03-04" data-rail-target="0304">
     <div class="wrap pair-images">
       <a class="plate-figure" href="images/plate-03-full.webp" data-index="2">
-        <img src="images/plate-03.webp" width="1350" height="1800" loading="lazy"
-             alt="Graphite drawing of a room in one-point perspective, showing a bookshelf and a window rendered in a full range of grey tones on white paper.">
+        <img src="images/plate-03.webp" width="1800" height="1213" loading="lazy"
+             alt="Graphite drawing of a home study in one-point perspective, with floor-to-ceiling bookshelves on the left, a desk and chair at center, and a curtained window on the right.">
       </a>
       <a class="plate-figure" href="images/plate-04-full.webp" data-index="3">
-        <img src="images/plate-04.webp" width="1350" height="1800" loading="lazy"
-             alt="White charcoal on black paper showing a living room in reverse value, with light falling through a window onto floorboards.">
+        <img src="images/plate-04.webp" width="1800" height="1300" loading="lazy"
+             alt="White charcoal on black paper showing the same study in reverse value, light spilling through the window across the floorboards while the bookshelves and desk emerge from darkness.">
       </a>
     </div>
     <div class="wrap pair-label">
@@ -624,18 +587,17 @@ html.reduced-motion .lightbox{ transition: none; }
       <p class="wl-note"><span class="fill-blank">[MATTIA FILLS: one-sentence note]</span></p>
     </div>
   </section>
-
   <!-- ============ PLATE 05 — diptych ============ -->
   <section class="plate-block plate-block--05" id="plate-05" data-rail-target="05">
     <div class="wrap diptych-wrap">
       <div class="diptych-panels">
         <a class="plate-figure" href="images/plate-05a-full.webp" data-index="4">
-          <img src="images/plate-05a.webp" width="1350" height="1800" loading="lazy"
-               alt="Graphite drawing of a standing armored figure, rendered in careful line and shading against a bare paper ground.">
+          <img src="images/plate-05a.webp" width="1238" height="1800" loading="lazy"
+               alt="Graphite drawing of an armored warrior figure gripping a curved sword and shield, standing before a brick wall and a wooden barrel in a fantasy interior.">
         </a>
         <a class="plate-figure" href="images/plate-05b-full.webp" data-index="5">
-          <img src="images/plate-05b.webp" width="1350" height="1800" loading="lazy"
-               alt="Solid black ink drawing of a night scene, its forms carved out of near-total darkness.">
+          <img src="images/plate-05b.webp" width="1458" height="1800" loading="lazy"
+               alt="Bold black ink drawing of a figure standing among clouds beneath a full moon and starry sky, rendered almost entirely in solid black with the moon and clouds left as bare white paper.">
         </a>
       </div>
       <div class="diptych-labels">
@@ -657,13 +619,12 @@ html.reduced-motion .lightbox{ transition: none; }
       </div>
     </div>
   </section>
-
   <!-- ============ PLATE 06 ============ -->
   <section class="plate-block plate-block--06" id="plate-06" data-rail-target="06">
     <div class="wrap single-wrap">
       <a class="plate-figure" href="images/plate-06-full.webp" data-index="6">
-        <img src="images/plate-06.webp" width="1800" height="1800" loading="lazy"
-             alt="Hand-cut black paper silhouette of a symmetrical mask, its features formed entirely by removed negative space against a white ground.">
+        <img src="images/plate-06.webp" width="1800" height="1433" loading="lazy"
+             alt="Hand-cut black paper silhouette of a symmetrical, fanged monster mask with jagged fur-like spikes and glaring eyes, formed entirely by removed negative space against white paper.">
       </a>
       <aside class="wall-label">
         <p class="wl-number">PLATE 06</p>
@@ -674,15 +635,14 @@ html.reduced-motion .lightbox{ transition: none; }
       </aside>
     </div>
   </section>
-
   <!-- ============ PLATE 07 — Studies ============ -->
   <section class="plate-block plate-block--07" id="plate-07" data-rail-target="07">
     <div class="wrap">
       <p class="section-label studies-eyebrow">Studies</p>
       <div class="plate-row plate-row--figure-left" style="max-width:none;">
         <a class="plate-figure" href="images/plate-07-full.webp" data-index="7">
-          <img src="images/plate-07.webp" width="1800" height="1350" loading="lazy"
-               alt="Graphite sketchbook study of a pair of headphones and a bag, drawn on a page with visible sketchbook edges.">
+          <img src="images/plate-07.webp" width="1800" height="1308" loading="lazy"
+               alt="Graphite sketchbook study of a wireless earbuds charging case and a small zippered pouch, drawn on a spiral-bound sketchbook page.">
         </a>
         <aside class="wall-label">
           <p class="wl-number">PLATE 07</p>
@@ -693,9 +653,7 @@ html.reduced-motion .lightbox{ transition: none; }
       </div>
     </div>
   </section>
-
 </section>
-
 <section class="about wrap" id="about">
   <p class="section-label">About / Contact</p>
   <hr class="hairline">
@@ -712,11 +670,9 @@ html.reduced-motion .lightbox{ transition: none; }
     -->
   </div>
 </section>
-
 <footer class="site-footer wrap">
   <p>© 2026 MATTIA <span class="fill-blank">Schiavon</span></p>
 </footer>
-
 <nav class="scroll-rail" aria-label="Plate index">
   <a href="#plate-01" data-rail="01">01</a>
   <a href="#plate-02" data-rail="02">02</a>
@@ -725,7 +681,6 @@ html.reduced-motion .lightbox{ transition: none; }
   <a href="#plate-06" data-rail="06">06</a>
   <a href="#plate-07" data-rail="07">07</a>
 </nav>
-
 <div class="lightbox ground-paper" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Plate viewer">
   <button class="lightbox-close" type="button" aria-label="Close">×</button>
   <button class="lightbox-prev" type="button" aria-label="Previous plate">‹</button>
@@ -735,14 +690,11 @@ html.reduced-motion .lightbox{ transition: none; }
   </figure>
   <p class="lightbox-label" id="lightbox-label"></p>
 </div>
-
 <script>
 (function(){
   "use strict";
-
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) document.documentElement.classList.add("reduced-motion");
-
   /* ---------- Signature element: value inversion (Section 4) ---------- */
   var invZone = document.getElementById("plate-03-04");
   if (invZone && "IntersectionObserver" in window) {
@@ -753,7 +705,6 @@ html.reduced-motion .lightbox{ transition: none; }
     }, { rootMargin: "-35% 0px -35% 0px", threshold: 0 });
     invObserver.observe(invZone);
   }
-
   /* ---------- Scroll rail active state ---------- */
   var railLinks = document.querySelectorAll(".scroll-rail a");
   var railTargets = document.querySelectorAll("[data-rail-target]");
@@ -770,19 +721,17 @@ html.reduced-motion .lightbox{ transition: none; }
     }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
     railTargets.forEach(function (t) { railObserver.observe(t); });
   }
-
   /* ---------- Lightbox ---------- */
   var plateData = [
-    { full: "images/plate-01-full.webp", alt: "Graphite drawing of a combination wrench whose handle transforms into a mossy tree branch with sprouting leaves, lying on a workshop floor beneath a hanging lamp and a pegboard of tools.", label: "PLATE 01 — Second Growth · Graphite on paper", ground: "paper" },
-    { full: "images/plate-02-full.webp", alt: "Graphite drawing of a lacrosse stick head and an acoustic guitar overlapping into a single form, their surfaces resolving into a shared pattern of overlapping scales or shingles.", label: "PLATE 02 — Off Season · Graphite on paper", ground: "paper" },
-    { full: "images/plate-03-full.webp", alt: "Graphite drawing of a room in one-point perspective, showing a bookshelf and a window rendered in a full range of grey tones on white paper.", label: "PLATE 03 — Room, in Light · Graphite on paper", ground: "paper" },
-    { full: "images/plate-04-full.webp", alt: "White charcoal on black paper showing a living room in reverse value, with light falling through a window onto floorboards.", label: "PLATE 04 — Room, in Dark · White charcoal on black paper", ground: "ink" },
-    { full: "images/plate-05a-full.webp", alt: "Graphite drawing of a standing armored figure, rendered in careful line and shading against a bare paper ground.", label: "PLATE 05 (left) — Range · Graphite on paper", ground: "paper" },
-    { full: "images/plate-05b-full.webp", alt: "Solid black ink drawing of a night scene, its forms carved out of near-total darkness.", label: "PLATE 05 (right) — Range · Ink on paper", ground: "ink" },
-    { full: "images/plate-06-full.webp", alt: "Hand-cut black paper silhouette of a symmetrical mask, its features formed entirely by removed negative space against a white ground.", label: "PLATE 06 — Cut Mask · Cut black paper", ground: "ink" },
-    { full: "images/plate-07-full.webp", alt: "Graphite sketchbook study of a pair of headphones and a bag, drawn on a page with visible sketchbook edges.", label: "PLATE 07 — Desk Study · Graphite on paper", ground: "paper" }
+    { full: "images/plate-01-full.webp", alt: "Graphite drawing of a combination wrench whose handle dissolves into a mossy, cracked tree branch with sprouting leaves and roots, set against a workshop scene of a pegboard hung with tools, glass jars, and a hanging lamp.", label: "PLATE 01 — Second Growth · Graphite on paper", ground: "paper" },
+    { full: "images/plate-02-full.webp", alt: "Graphite drawing of a lacrosse stick head merged with an acoustic guitar body, the shared form covered in overlapping fish-scale-like shingles, with the guitar's fretboard rising into the lacrosse head's strung pocket.", label: "PLATE 02 — Off Season · Graphite on paper", ground: "paper" },
+    { full: "images/plate-03-full.webp", alt: "Graphite drawing of a home study in one-point perspective, with floor-to-ceiling bookshelves on the left, a desk and chair at center, and a curtained window on the right.", label: "PLATE 03 — Room, in Light · Graphite on paper", ground: "paper" },
+    { full: "images/plate-04-full.webp", alt: "White charcoal on black paper showing the same study in reverse value, light spilling through the window across the floorboards while the bookshelves and desk emerge from darkness.", label: "PLATE 04 — Room, in Dark · White charcoal on black paper", ground: "ink" },
+    { full: "images/plate-05a-full.webp", alt: "Graphite drawing of an armored warrior figure gripping a curved sword and shield, standing before a brick wall and a wooden barrel in a fantasy interior.", label: "PLATE 05 (left) — Range · Graphite on paper", ground: "paper" },
+    { full: "images/plate-05b-full.webp", alt: "Bold black ink drawing of a figure standing among clouds beneath a full moon and starry sky, rendered almost entirely in solid black with the moon and clouds left as bare white paper.", label: "PLATE 05 (right) — Range · Ink on paper", ground: "ink" },
+    { full: "images/plate-06-full.webp", alt: "Hand-cut black paper silhouette of a symmetrical, fanged monster mask with jagged fur-like spikes and glaring eyes, formed entirely by removed negative space against white paper.", label: "PLATE 06 — Cut Mask · Cut black paper", ground: "ink" },
+    { full: "images/plate-07-full.webp", alt: "Graphite sketchbook study of a wireless earbuds charging case and a small zippered pouch, drawn on a spiral-bound sketchbook page.", label: "PLATE 07 — Desk Study · Graphite on paper", ground: "paper" }
   ];
-
   var lightbox = document.getElementById("lightbox");
   var lbImg = document.getElementById("lightbox-img");
   var lbLabel = document.getElementById("lightbox-label");
@@ -791,7 +740,6 @@ html.reduced-motion .lightbox{ transition: none; }
   var lbNext = lightbox.querySelector(".lightbox-next");
   var currentIndex = 0;
   var Focused = null;
-
   function renderLightbox(i) {
     var d = plateData[i];
     lbImg.src = d.full;
@@ -800,7 +748,6 @@ html.reduced-motion .lightbox{ transition: none; }
     lightbox.classList.toggle("ground-ink", d.ground === "ink");
     lightbox.classList.toggle("ground-paper", d.ground !== "ink");
   }
-
   function openLightbox(i) {
     currentIndex = i;
     renderLightbox(i);
@@ -810,19 +757,16 @@ html.reduced-motion .lightbox{ transition: none; }
     lbClose.focus();
     document.addEventListener("keydown", onKeydown);
   }
-
   function closeLightbox() {
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
     document.removeEventListener("keydown", onKeydown);
     if (Focused && typeof Focused.focus === "function") Focused.focus();
   }
-
   function step(dir) {
     currentIndex = (currentIndex + dir + plateData.length) % plateData.length;
     renderLightbox(currentIndex);
   }
-
   function onKeydown(e) {
     if (e.key === "Escape") { closeLightbox(); return; }
     if (e.key === "ArrowRight") { step(1); return; }
@@ -835,21 +779,18 @@ html.reduced-motion .lightbox{ transition: none; }
       focusable[idx].focus();
     }
   }
-
   document.querySelectorAll(".plate-figure[data-index]").forEach(function (link) {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       openLightbox(parseInt(link.getAttribute("data-index"), 10));
     });
   });
-
   lbClose.addEventListener("click", closeLightbox);
   lbPrev.addEventListener("click", function () { step(-1); });
   lbNext.addEventListener("click", function () { step(1); });
   lightbox.addEventListener("click", function (e) {
     if (e.target === lightbox) closeLightbox();
   });
-
   var touchStartX = null;
   lightbox.addEventListener("touchstart", function (e) {
     touchStartX = e.changedTouches[0].clientX;
