@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mattia [Last Name] — Drawings</title>
+<title>Mattia Schiavon — Drawings</title>
 <meta name="description" content="A portfolio of  graphite, charcoal, ink, and cut-paper drawings by Mattia Schiavon.">
 
 <!-- Open Graph. NOTE: og:image below is a relative path — once this is deployed to a
@@ -525,7 +525,7 @@ html.reduced-motion .lightbox{ transition: none; }
 <body>
 
 <nav class="site-nav" aria-label="Primary">
-  <a class="nav-name" href="#top">Mattia <span class="fill-blank">[LAST NAME]</span></a>
+  <a class="nav-name" href="#top">Mattia <span class="fill-blank">[ NAME]</span></a>
   <div class="nav-links">
     <a href="#works">WORKS</a><span aria-hidden="true">·</span><a href="#about">ABOUT</a><span aria-hidden="true">·</span><a href="#contact">CONTACT</a>
   </div>
@@ -539,7 +539,7 @@ html.reduced-motion .lightbox{ transition: none; }
   <img class="hero-img" src="images/hero.webp" width="2400" height="1350" alt="Detail crop of a graphite drawing: a wrench handle dissolving into bark and sprouting leaves." loading="eager" fetchpriority="high">
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1>Mattia <span class="fill-blank">[LAST NAME]</span></h1>
+    <h1>Mattia <span class="fill-blank">[ NAME]</span></h1>
     <p>Drawings, 2024–2026</p>
   </div>
   <div class="hero-scroll" aria-hidden="true">
@@ -700,7 +700,7 @@ html.reduced-motion .lightbox{ transition: none; }
   <p class="section-label">About / Contact</p>
   <hr class="hairline">
   <div class="about-inner">
-    <p class="about-name">Mattia <span class="fill-blank">[LAST NAME]</span></p>
+    <p class="about-name">Mattia <span class="fill-blank">[ NAME]</span></p>
     <p class="about-location">Berkeley, California</p>
     <!-- MATTIA: 2–3 sentences. Where you study, what you build, what you're applying to. -->
     <p class="fill-blank">[MATTIA FILLS: 2–3 sentences — where you study, what you build, what you're applying to.]</p>
@@ -714,7 +714,7 @@ html.reduced-motion .lightbox{ transition: none; }
 </section>
 
 <footer class="site-footer wrap">
-  <p>© 2026 MATTIA <span class="fill-blank">[LAST NAME]</span></p>
+  <p>© 2026 MATTIA <span class="fill-blank">[ NAME]</span></p>
 </footer>
 
 <nav class="scroll-rail" aria-label="Plate index">
@@ -790,7 +790,7 @@ html.reduced-motion .lightbox{ transition: none; }
   var lbPrev = lightbox.querySelector(".lightbox-prev");
   var lbNext = lightbox.querySelector(".lightbox-next");
   var currentIndex = 0;
-  var lastFocused = null;
+  var Focused = null;
 
   function renderLightbox(i) {
     var d = plateData[i];
@@ -804,7 +804,7 @@ html.reduced-motion .lightbox{ transition: none; }
   function openLightbox(i) {
     currentIndex = i;
     renderLightbox(i);
-    lastFocused = document.activeElement;
+    Focused = document.activeElement;
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
     lbClose.focus();
@@ -815,7 +815,7 @@ html.reduced-motion .lightbox{ transition: none; }
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
     document.removeEventListener("keydown", onKeydown);
-    if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+    if (Focused && typeof Focused.focus === "function") Focused.focus();
   }
 
   function step(dir) {
