@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mattia Schiavon — Drawings</title>
+<title>Mattia Schiavon's Art Portfolio</title>
 <meta name="description" content="A portfolio of graphite, charcoal, ink, and cut-paper drawings by Mattia Schiavon.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mattia Schiavon — Drawings">
@@ -136,30 +136,18 @@ html.reduced-motion .site-nav{ transition: none; }
 .nav-links span{ color: var(--fg-faint); }
 .hero{
   position: relative;
-  height: 100vh;
-  min-height: 560px;
   overflow: hidden;
+  background: var(--paper);
 }
 .hero-img{
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-scrim{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 48%;
-  background: linear-gradient(to top, rgba(241,242,244,0.62), rgba(241,242,244,0));
-  pointer-events: none;
+  height: auto;
 }
 .hero-content{
-  position: absolute;
-  left: var(--pad);
-  bottom: 64px;
-  z-index: 2;
-  max-width: 90%;
+  padding: 32px var(--pad) 48px;
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 .hero-content h1{
   margin: 0;
@@ -179,27 +167,6 @@ html.reduced-motion .site-nav{ transition: none; }
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--graphite-2);
-}
-.hero-scroll{
-  position: absolute;
-  right: var(--pad);
-  bottom: 40px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-label);
-  font-size: var(--fs-label);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--graphite-2);
-}
-.hero-scroll::after{
-  content: "";
-  width: 1px;
-  height: 28px;
-  background: var(--graphite-3);
 }
 @media (max-width: 600px){
   .hero-content{ max-width: 100%; }
@@ -460,13 +427,9 @@ html.reduced-motion .lightbox{ transition: none; }
 </nav>
 <header class="hero" id="top">
   <img class="hero-img" src="images/hero.jpg" width="2400" height="1350" alt="Two children crouching at the base of Rodin's The Thinker statue in an outdoor museum courtyard." loading="eager" fetchpriority="high">
-  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1>Mattia Schiavon</h1>
+    <h1>Mattia Schiavon's Art Portfolio</h1>
     <p>Drawings, 2024–2026</p>
-  </div>
-  <div class="hero-scroll" aria-hidden="true">
-    <span>Scroll</span>
   </div>
 </header>
 <section class="statement wrap" id="statement">
