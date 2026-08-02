@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mattia [Last Name] — Drawings</title>
+<meta name="description" content="A portfolio of seven graphite, charcoal, ink, and cut-paper drawings by Mattia [Last Name] — studies of the seam where built things and grown things meet.">
+
+<!-- Open Graph. NOTE: og:image below is a relative path — once this is deployed to a
+     real domain, change it to an absolute URL (e.g. https://yourdomain.com/images/hero.webp)
+     so link previews resolve correctly in email clients and the Common App. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mattia [Last Name] — Drawings">
+<meta property="og:description" content="Seven graphite, charcoal, ink, and cut-paper drawings — studies of the seam where built things and grown things meet.">
+<meta property="og:image" content="images/hero.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,20,400;1,20,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --paper:      #F1F2F4;
+  --paper-deep: #E6E8EB;
+  --graphite-1: #14171B;
+  --graphite-2: #4A5058;
+  --graphite-3: #8A9099;
+  --ink:        #0C0F13;
+  --ink-text:   #DDE2E8;
+
+  /* state-driven theme vars — flipped on body.inverted */
+  --bg:        var(--paper);
+  --fg:        var(--graphite-1);
+  --fg-muted:  var(--graphite-2);
+  --fg-faint:  var(--graphite-3);
+  --hairline:  rgba(138,144,153,0.4);
+  --matte:     var(--paper-deep);
+
+  --font-display: 'Archivo', sans-serif;
+  --font-body:    'Newsreader', serif;
+  --font-label:   'IBM Plex Mono', monospace;
+
+  --content-max: 1240px;
+  --pad: 40px;
+  --section-space: 140px;
+
+  --fs-display-xl: 72px;
+  --fs-display-lg: 38px;
+  --fs-body: 19px;
+  --fs-label: 12px;
+}
+
+body.inverted{
+  --bg:       var(--ink);
+  --fg:       var(--ink-text);
+  --fg-muted: #A9B0BA;
+  --fg-faint: #6B7178;
+  --hairline: rgba(221,226,232,0.35);
+  --matte:    #171B21;
+}
+
+@media (max-width: 600px){
+  :root{
+    --pad: 20px;
+    --section-space: 80px;
+    --fs-display-xl: 40px;
+    --fs-display-lg: 27px;
+    --fs-body: 17px;
+    --fs-label: 11px;
+  }
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
+body{
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  transition: background-color .7s ease, color .7s ease;
+}
+html.reduced-motion body{ transition: none; }
+
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+hr.hairline{
+  border: none;
+  border-top: 1px solid var(--hairline);
+  margin: 14px 0;
+  width: 100%;
+}
+:focus-visible{
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+.wrap{
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.fill-blank{
+  color: var(--fg-faint);
+  border-bottom: 1px dashed var(--fg-faint);
+  padding-bottom: 1px;
+}
+
+/* section label eyebrow, e.g. "STATEMENT" / "ABOUT / CONTACT" */
+.section-label{
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.site-nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--pad);
+  z-index: 60;
+  color: var(--fg);
+  transition: color .7s ease;
+}
+html.reduced-motion .site-nav{ transition: none; }
+.nav-name{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: 115%;
+  letter-spacing: -0.02em;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.nav-links{
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  display: flex;
+  gap: 8px;
+}
+.nav-links a{ padding: 4px 2px; }
+.nav-links a:hover{ text-decoration: underline; text-underline-offset: 4px; }
+.nav-links span{ color: var(--fg-faint); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+}
+.hero-img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Functional legibility scrim, not decoration — single-hue fade in var(--paper) only,
+   per Section 5 of the spec. Never used elsewhere on the page. */
+.hero-scrim{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 48%;
+  background: linear-gradient(to top, rgba(241,242,244,0.62), rgba(241,242,244,0));
+  pointer-events: none;
+}
+.hero-content{
+  position: absolute;
+  left: var(--pad);
+  bottom: 64px;
+  z-index: 2;
+  max-width: 90%;
+}
+.hero-content h1{
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: 115%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1.02;
+  font-size: var(--fs-display-xl);
+  color: var(--graphite-1);
+}
+.hero-content p{
+  margin: 12px 0 0;
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--graphite-2);
+}
+.hero-scroll{
+  position: absolute;
+  right: var(--pad);
+  bottom: 40px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--graphite-2);
+}
+.hero-scroll::after{
+  content: "";
+  width: 1px;
+  height: 28px;
+  background: var(--graphite-3);
+}
+@media (max-width: 600px){
+  .hero-content{ max-width: 100%; }
+}
+
+/* ============================================================
+   STATEMENT
+   ============================================================ */
+.statement{
+  padding-top: var(--section-space);
+}
+.statement-inner{
+  max-width: 62ch;
+}
+.statement-placeholder{
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px dashed var(--fg-faint);
+  color: var(--fg-faint);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   PLATES — shared components
+   ============================================================ */
+.plate-block{
+  padding-block: var(--section-space);
+}
+.plate-figure{
+  display: block;
+}
+.plate-figure img{ width: 100%; height: auto; }
+
+.wall-label{
+  font-family: var(--font-label);
+}
+.wl-number{
+  margin: 0;
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  color: var(--fg-muted);
+}
+.wl-title{
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: 115%;
+  letter-spacing: -0.02em;
+  font-size: var(--fs-display-lg);
+  line-height: 1.1;
+  color: var(--fg);
+}
+.wl-meta{
+  margin: 0;
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1.9;
+  color: var(--fg-muted);
+}
+.wl-note{
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--fg-muted);
+  max-width: 34ch;
+}
+
+/* two-up rows (Plate 01 / 02) */
+.plate-row{
+  display: grid;
+  grid-template-columns: var(--img-w, 88%) 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.plate-row--figure-right{
+  grid-template-columns: 1fr var(--img-w, 88%);
+}
+.plate-row--figure-right .plate-figure{ order: 2; }
+.plate-row--figure-right .wall-label{ order: 1; }
+
+.plate-block--01{ --img-w: 92%; }
+.plate-block--02{ --img-w: 88%; }
+.plate-block--07 .plate-row{ --img-w: 34%; }
+
+@media (max-width: 900px){
+  .plate-row{ grid-template-columns: 1fr !important; }
+  .plate-row--figure-right .plate-figure,
+  .plate-row--figure-right .wall-label{ order: unset; }
+  .wall-label{ margin-top: 20px; }
+}
+
+/* Plate 03 / 04 — the inversion pair */
+.plate-pair{
+  padding-block: var(--section-space);
+}
+.pair-images{
+  display: flex;
+  gap: 4%;
+}
+.pair-images .plate-figure{ flex: 0 0 46%; }
+@media (max-width: 600px){
+  .pair-images{ flex-direction: column; gap: 32px; }
+  .pair-images .plate-figure{ flex-basis: auto; }
+}
+.pair-label{
+  margin-top: 32px;
+  text-align: center;
+  font-family: var(--font-label);
+}
+.pair-label .wl-title{
+  display: block;
+  margin-bottom: 6px;
+}
+.pair-label hr.hairline{ max-width: 220px; margin-inline: auto; }
+.pair-label .wl-meta{ margin-top: 8px; }
+.pair-label .wl-note{ margin-inline: auto; text-align: left; }
+
+/* Plate 05 — diptych */
+.plate-block--05 .diptych-wrap{
+  max-width: 78%;
+  margin-inline: auto;
+}
+.diptych-panels{
+  display: flex;
+  gap: 3%;
+}
+.diptych-panels .plate-figure{ flex: 0 0 48.5%; }
+@media (max-width: 600px){
+  .plate-block--05 .diptych-wrap{ max-width: 100%; }
+  .diptych-panels{ flex-direction: column; gap: 24px; }
+  .diptych-panels .plate-figure{ flex-basis: auto; }
+}
+.diptych-labels{
+  display: flex;
+  justify-content: space-between;
+  gap: 3%;
+  margin-top: 24px;
+  text-align: center;
+}
+.diptych-labels > div{ flex: 0 0 48.5%; }
+@media (max-width: 600px){
+  .diptych-labels{ flex-direction: column; gap: 20px; }
+  .diptych-labels > div{ flex-basis: auto; }
+}
+
+/* Plate 06 — inset, centered */
+.plate-block--06 .single-wrap{
+  max-width: 62%;
+  margin-inline: auto;
+}
+@media (max-width: 600px){
+  .plate-block--06 .single-wrap{ max-width: 100%; }
+}
+.plate-block--06 .wall-label{
+  margin-top: 24px;
+  text-align: center;
+}
+.plate-block--06 .wl-meta{ margin-top: 8px; }
+
+/* Plate 07 — studies row */
+.studies-eyebrow{
+  margin-bottom: 32px;
+}
+
+/* ============================================================
+   SCROLL RAIL
+   ============================================================ */
+.scroll-rail{
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.09em;
+}
+.scroll-rail a{
+  color: var(--fg-faint);
+  transition: color .3s ease;
+}
+.scroll-rail a.active{ color: var(--fg); }
+@media (max-width: 900px){
+  .scroll-rail{ display: none; }
+}
+
+/* ============================================================
+   ABOUT / FOOTER
+   ============================================================ */
+.about{ padding-block: var(--section-space); }
+.about-inner{ max-width: 62ch; margin-top: 28px; }
+.about-inner p{ margin: 0 0 18px; }
+.about-name{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-stretch: 115%;
+  font-size: var(--fs-display-lg);
+  letter-spacing: -0.02em;
+}
+.about-location{
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.about-email a{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.site-footer{
+  padding-block: 40px 60px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  color: var(--fg-faint);
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+html.reduced-motion .lightbox{ transition: none; }
+.lightbox.open{
+  display: flex;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.ground-paper{ background: var(--paper); color: var(--graphite-1); }
+.lightbox.ground-ink{ background: var(--ink); color: var(--ink-text); }
+.lightbox-figure{
+  max-width: 92vw;
+  max-height: 82vh;
+  margin: 0;
+}
+.lightbox-figure img{
+  max-width: 92vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.lightbox-label{
+  position: absolute;
+  left: var(--pad);
+  bottom: 28px;
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.lightbox button{
+  position: absolute;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: var(--font-label);
+  cursor: pointer;
+  padding: 12px;
+}
+.lightbox-close{
+  top: 16px; right: 16px;
+  font-size: 28px;
+  line-height: 1;
+}
+.lightbox-prev{ left: 8px; top: 50%; transform: translateY(-50%); font-size: 32px; }
+.lightbox-next{ right: 8px; top: 50%; transform: translateY(-50%); font-size: 32px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Primary">
+  <a class="nav-name" href="#top">Mattia <span class="fill-blank">[LAST NAME]</span></a>
+  <div class="nav-links">
+    <a href="#works">WORKS</a><span aria-hidden="true">·</span><a href="#about">ABOUT</a><span aria-hidden="true">·</span><a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <!-- HERO: tight, wide crop of Plate 01 at the exact point the wrench handle turns
+       into bark — cropped so the seam reads before the subject does. Replace
+       images/hero.webp (and hero-full.webp if you add a lightbox to the hero later)
+       once Plate 01 is scanned and cropped. See Section 2 of the build spec / README. -->
+  <img class="hero-img" src="images/hero.webp" width="2400" height="1350" alt="Detail crop of a graphite drawing: a wrench handle dissolving into bark and sprouting leaves." loading="eager" fetchpriority="high">
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1>Mattia <span class="fill-blank">[LAST NAME]</span></h1>
+    <p>Drawings, 2024–2026</p>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+  </div>
+</header>
+
+<section class="statement wrap" id="statement">
+  <div class="statement-inner">
+    <p class="section-label">Statement</p>
+    <hr class="hairline">
+    <!-- MATTIA: 90–140 words. Handwrite this, don't polish it into nothing.
+         Three questions to answer, in your own voice:
+         1. What made you start drawing tools and objects instead of people or landscapes?
+         2. What does drawing teach you that CAD and building don't?
+         3. What are you actually looking at when you draw — light, structure, texture, memory?
+         Do not write "art has always been my passion." Do not write "I've loved drawing
+         since I was a child." Start with a specific object or a specific afternoon. -->
+    <p class="statement-placeholder">[ARTIST STATEMENT GOES HERE]</p>
+  </div>
+</section>
+
+<section id="works">
+
+  <!-- ============ PLATE 01 ============ -->
+  <section class="plate-block plate-block--01" id="plate-01" data-rail-target="01">
+    <div class="wrap plate-row plate-row--figure-right">
+      <a class="plate-figure" href="images/plate-01-full.webp" data-index="0">
+        <img src="images/plate-01.webp" width="1800" height="1350" loading="lazy"
+             alt="Graphite drawing of a combination wrench whose handle transforms into a mossy tree branch with sprouting leaves, lying on a workshop floor beneath a hanging lamp and a pegboard of tools.">
+      </a>
+      <aside class="wall-label">
+        <p class="wl-number">PLATE 01</p>
+        <hr class="hairline">
+        <!-- Suggested title — confirm or replace. Alternates: Overhaul · Maintenance · The Long Repair -->
+        <h3 class="wl-title">Second Growth</h3>
+        <p class="wl-meta">Graphite on paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
+        <!-- MATTIA: one-sentence note, your own voice -->
+        <p class="wl-note"><span class="fill-blank">[MATTIA FILLS: one-sentence note]</span></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ PLATE 02 ============ -->
+  <section class="plate-block plate-block--02" id="plate-02" data-rail-target="02">
+    <div class="wrap plate-row plate-row--figure-left">
+      <a class="plate-figure" href="images/plate-02-full.webp" data-index="1">
+        <img src="images/plate-02.webp" width="1800" height="1350" loading="lazy"
+             alt="Graphite drawing of a lacrosse stick head and an acoustic guitar overlapping into a single form, their surfaces resolving into a shared pattern of overlapping scales or shingles.">
+      </a>
+      <aside class="wall-label">
+        <p class="wl-number">PLATE 02</p>
+        <hr class="hairline">
+        <!-- Suggested title — confirm or replace. Alternates: Both Hands · Same Grip -->
+        <h3 class="wl-title">Off Season</h3>
+        <p class="wl-meta">Graphite on paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
+        <!-- MATTIA: one-sentence note, your own voice -->
+        <p class="wl-note"><span class="fill-blank">[MATTIA FILLS: one-sentence note]</span></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ PLATE 03 + 04 — the inversion pair ============ -->
+  <section class="plate-pair" id="plate-03-04" data-rail-target="0304">
+    <div class="wrap pair-images">
+      <a class="plate-figure" href="images/plate-03-full.webp" data-index="2">
+        <img src="images/plate-03.webp" width="1350" height="1800" loading="lazy"
+             alt="Graphite drawing of a room in one-point perspective, showing a bookshelf and a window rendered in a full range of grey tones on white paper.">
+      </a>
+      <a class="plate-figure" href="images/plate-04-full.webp" data-index="3">
+        <img src="images/plate-04.webp" width="1350" height="1800" loading="lazy"
+             alt="White charcoal on black paper showing a living room in reverse value, with light falling through a window onto floorboards.">
+      </a>
+    </div>
+    <div class="wrap pair-label">
+      <p class="wl-number">PLATE 03 · PLATE 04</p>
+      <hr class="hairline">
+      <!-- Suggested titles — confirm or replace. -->
+      <span class="wl-title">Room, in Light — Room, in Dark</span>
+      <p class="wl-meta">Graphite on paper · White charcoal on black paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
+      <!-- MATTIA: one-sentence note about drawing the same room twice -->
+      <p class="wl-note"><span class="fill-blank">[MATTIA FILLS: one-sentence note]</span></p>
+    </div>
+  </section>
+
+  <!-- ============ PLATE 05 — diptych ============ -->
+  <section class="plate-block plate-block--05" id="plate-05" data-rail-target="05">
+    <div class="wrap diptych-wrap">
+      <div class="diptych-panels">
+        <a class="plate-figure" href="images/plate-05a-full.webp" data-index="4">
+          <img src="images/plate-05a.webp" width="1350" height="1800" loading="lazy"
+               alt="Graphite drawing of a standing armored figure, rendered in careful line and shading against a bare paper ground.">
+        </a>
+        <a class="plate-figure" href="images/plate-05b-full.webp" data-index="5">
+          <img src="images/plate-05b.webp" width="1350" height="1800" loading="lazy"
+               alt="Solid black ink drawing of a night scene, its forms carved out of near-total darkness.">
+        </a>
+      </div>
+      <div class="diptych-labels">
+        <div>
+          <p class="wl-number">PLATE 05 — LEFT</p>
+          <hr class="hairline">
+          <p class="wl-meta">Graphite on paper</p>
+        </div>
+        <div>
+          <p class="wl-number">PLATE 05 — RIGHT</p>
+          <hr class="hairline">
+          <p class="wl-meta">Ink on paper</p>
+        </div>
+      </div>
+      <div class="wall-label" style="text-align:center; margin-top:24px;">
+        <!-- Suggested title — confirm or replace. Alternates: Two Ways to Make a Shadow -->
+        <h3 class="wl-title">Range</h3>
+        <p class="wl-meta"><span class="fill-blank">[MATTIA FILLS: dimensions]</span> · <span class="fill-blank">[MATTIA FILLS: year]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLATE 06 ============ -->
+  <section class="plate-block plate-block--06" id="plate-06" data-rail-target="06">
+    <div class="wrap single-wrap">
+      <a class="plate-figure" href="images/plate-06-full.webp" data-index="6">
+        <img src="images/plate-06.webp" width="1800" height="1800" loading="lazy"
+             alt="Hand-cut black paper silhouette of a symmetrical mask, its features formed entirely by removed negative space against a white ground.">
+      </a>
+      <aside class="wall-label">
+        <p class="wl-number">PLATE 06</p>
+        <hr class="hairline">
+        <!-- Suggested title — confirm or replace. Alternates: Symmetry Study -->
+        <h3 class="wl-title">Cut Mask</h3>
+        <p class="wl-meta">Cut black paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ PLATE 07 — Studies ============ -->
+  <section class="plate-block plate-block--07" id="plate-07" data-rail-target="07">
+    <div class="wrap">
+      <p class="section-label studies-eyebrow">Studies</p>
+      <div class="plate-row plate-row--figure-left" style="max-width:none;">
+        <a class="plate-figure" href="images/plate-07-full.webp" data-index="7">
+          <img src="images/plate-07.webp" width="1800" height="1350" loading="lazy"
+               alt="Graphite sketchbook study of a pair of headphones and a bag, drawn on a page with visible sketchbook edges.">
+        </a>
+        <aside class="wall-label">
+          <p class="wl-number">PLATE 07</p>
+          <hr class="hairline">
+          <h3 class="wl-title">Desk Study</h3>
+          <p class="wl-meta">Graphite on paper<br><span class="fill-blank">[MATTIA FILLS: dimensions]</span><br><span class="fill-blank">[MATTIA FILLS: year]</span></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<section class="about wrap" id="about">
+  <p class="section-label">About / Contact</p>
+  <hr class="hairline">
+  <div class="about-inner">
+    <p class="about-name">Mattia <span class="fill-blank">[LAST NAME]</span></p>
+    <p class="about-location">Berkeley, California</p>
+    <!-- MATTIA: 2–3 sentences. Where you study, what you build, what you're applying to. -->
+    <p class="fill-blank">[MATTIA FILLS: 2–3 sentences — where you study, what you build, what you're applying to.]</p>
+    <p class="about-email" id="contact">
+      <a class="fill-blank" href="mailto:[MATTIA FILLS: email]">[MATTIA FILLS: email]</a>
+    </p>
+    <!-- Optional — uncomment and fill in if you want a résumé link or other project sites:
+    <p><a href="resume.pdf">Résumé (PDF)</a> · <a href="https://yournextmovie.example">YourNextMovie</a></p>
+    -->
+  </div>
+</section>
+
+<footer class="site-footer wrap">
+  <p>© 2026 MATTIA <span class="fill-blank">[LAST NAME]</span></p>
+</footer>
+
+<nav class="scroll-rail" aria-label="Plate index">
+  <a href="#plate-01" data-rail="01">01</a>
+  <a href="#plate-02" data-rail="02">02</a>
+  <a href="#plate-03-04" data-rail="0304">03 04</a>
+  <a href="#plate-05" data-rail="05">05</a>
+  <a href="#plate-06" data-rail="06">06</a>
+  <a href="#plate-07" data-rail="07">07</a>
+</nav>
+
+<div class="lightbox ground-paper" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Plate viewer">
+  <button class="lightbox-close" type="button" aria-label="Close">×</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous plate">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next plate">›</button>
+  <figure class="lightbox-figure">
+    <img id="lightbox-img" src="" alt="">
+  </figure>
+  <p class="lightbox-label" id="lightbox-label"></p>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) document.documentElement.classList.add("reduced-motion");
+
+  /* ---------- Signature element: value inversion (Section 4) ---------- */
+  var invZone = document.getElementById("plate-03-04");
+  if (invZone && "IntersectionObserver" in window) {
+    var invObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        document.body.classList.toggle("inverted", entry.isIntersecting);
+      });
+    }, { rootMargin: "-35% 0px -35% 0px", threshold: 0 });
+    invObserver.observe(invZone);
+  }
+
+  /* ---------- Scroll rail active state ---------- */
+  var railLinks = document.querySelectorAll(".scroll-rail a");
+  var railTargets = document.querySelectorAll("[data-rail-target]");
+  if (railTargets.length && "IntersectionObserver" in window) {
+    var railObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var key = entry.target.getAttribute("data-rail-target");
+          railLinks.forEach(function (a) {
+            a.classList.toggle("active", a.getAttribute("data-rail") === key);
+          });
+        }
+      });
+    }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+    railTargets.forEach(function (t) { railObserver.observe(t); });
+  }
+
+  /* ---------- Lightbox ---------- */
+  var plateData = [
+    { full: "images/plate-01-full.webp", alt: "Graphite drawing of a combination wrench whose handle transforms into a mossy tree branch with sprouting leaves, lying on a workshop floor beneath a hanging lamp and a pegboard of tools.", label: "PLATE 01 — Second Growth · Graphite on paper", ground: "paper" },
+    { full: "images/plate-02-full.webp", alt: "Graphite drawing of a lacrosse stick head and an acoustic guitar overlapping into a single form, their surfaces resolving into a shared pattern of overlapping scales or shingles.", label: "PLATE 02 — Off Season · Graphite on paper", ground: "paper" },
+    { full: "images/plate-03-full.webp", alt: "Graphite drawing of a room in one-point perspective, showing a bookshelf and a window rendered in a full range of grey tones on white paper.", label: "PLATE 03 — Room, in Light · Graphite on paper", ground: "paper" },
+    { full: "images/plate-04-full.webp", alt: "White charcoal on black paper showing a living room in reverse value, with light falling through a window onto floorboards.", label: "PLATE 04 — Room, in Dark · White charcoal on black paper", ground: "ink" },
+    { full: "images/plate-05a-full.webp", alt: "Graphite drawing of a standing armored figure, rendered in careful line and shading against a bare paper ground.", label: "PLATE 05 (left) — Range · Graphite on paper", ground: "paper" },
+    { full: "images/plate-05b-full.webp", alt: "Solid black ink drawing of a night scene, its forms carved out of near-total darkness.", label: "PLATE 05 (right) — Range · Ink on paper", ground: "ink" },
+    { full: "images/plate-06-full.webp", alt: "Hand-cut black paper silhouette of a symmetrical mask, its features formed entirely by removed negative space against a white ground.", label: "PLATE 06 — Cut Mask · Cut black paper", ground: "ink" },
+    { full: "images/plate-07-full.webp", alt: "Graphite sketchbook study of a pair of headphones and a bag, drawn on a page with visible sketchbook edges.", label: "PLATE 07 — Desk Study · Graphite on paper", ground: "paper" }
+  ];
+
+  var lightbox = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightbox-img");
+  var lbLabel = document.getElementById("lightbox-label");
+  var lbClose = lightbox.querySelector(".lightbox-close");
+  var lbPrev = lightbox.querySelector(".lightbox-prev");
+  var lbNext = lightbox.querySelector(".lightbox-next");
+  var currentIndex = 0;
+  var lastFocused = null;
+
+  function renderLightbox(i) {
+    var d = plateData[i];
+    lbImg.src = d.full;
+    lbImg.alt = d.alt;
+    lbLabel.textContent = d.label;
+    lightbox.classList.toggle("ground-ink", d.ground === "ink");
+    lightbox.classList.toggle("ground-paper", d.ground !== "ink");
+  }
+
+  function openLightbox(i) {
+    currentIndex = i;
+    renderLightbox(i);
+    lastFocused = document.activeElement;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+    lbClose.focus();
+    document.addEventListener("keydown", onKeydown);
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.removeEventListener("keydown", onKeydown);
+    if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+  }
+
+  function step(dir) {
+    currentIndex = (currentIndex + dir + plateData.length) % plateData.length;
+    renderLightbox(currentIndex);
+  }
+
+  function onKeydown(e) {
+    if (e.key === "Escape") { closeLightbox(); return; }
+    if (e.key === "ArrowRight") { step(1); return; }
+    if (e.key === "ArrowLeft") { step(-1); return; }
+    if (e.key === "Tab") {
+      var focusable = [lbPrev, lbNext, lbClose];
+      var idx = focusable.indexOf(document.activeElement);
+      e.preventDefault();
+      idx = e.shiftKey ? (idx - 1 + focusable.length) % focusable.length : (idx + 1) % focusable.length;
+      focusable[idx].focus();
+    }
+  }
+
+  document.querySelectorAll(".plate-figure[data-index]").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      openLightbox(parseInt(link.getAttribute("data-index"), 10));
+    });
+  });
+
+  lbClose.addEventListener("click", closeLightbox);
+  lbPrev.addEventListener("click", function () { step(-1); });
+  lbNext.addEventListener("click", function () { step(1); });
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  var touchStartX = null;
+  lightbox.addEventListener("touchstart", function (e) {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  lightbox.addEventListener("touchend", function (e) {
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) step(dx > 0 ? -1 : 1);
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
