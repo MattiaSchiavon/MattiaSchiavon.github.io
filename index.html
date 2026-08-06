@@ -8,11 +8,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mattia Schiavon — Drawings">
 <meta property="og:description" content="Seven graphite, charcoal, ink, and cut-paper drawings">
-<meta property="og:image" content="hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,20,400;1,20,400&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
 <style>
 :root{
   --paper:      #F1F2F4;
@@ -136,33 +134,16 @@ html.reduced-motion .site-nav{ transition: none; }
 .nav-links span{ color: var(--fg-faint); }
 .hero{
   position: relative;
-  height: 100vh;
-  min-height: 560px;
-  overflow: hidden;
-  background: var(--paper);
+  min-height: 72vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.hero-img{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-.hero-scrim{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 48%;
-  background: linear-gradient(to top, rgba(241,242,244,0.62), rgba(241,242,244,0));
-  pointer-events: none;
+  text-align: center;
+  padding-block: 120px 80px;
 }
 .hero-content{
-  position: absolute;
-  left: var(--pad);
-  bottom: 64px;
+  position: relative;
   z-index: 2;
   max-width: 90%;
 }
@@ -175,20 +156,19 @@ html.reduced-motion .site-nav{ transition: none; }
   text-transform: uppercase;
   line-height: 1.02;
   font-size: var(--fs-display-xl);
-  color: var(--graphite-1);
+  color: var(--fg);
 }
 .hero-content p{
-  margin: 12px 0 0;
+  margin: 16px 0 0;
   font-family: var(--font-label);
   font-size: var(--fs-label);
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--graphite-2);
+  color: var(--fg-muted);
 }
 .hero-scroll{
-  position: absolute;
-  right: var(--pad);
-  bottom: 40px;
+  position: relative;
+  margin-top: 56px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -198,16 +178,13 @@ html.reduced-motion .site-nav{ transition: none; }
   font-size: var(--fs-label);
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--graphite-2);
+  color: var(--fg-muted);
 }
 .hero-scroll::after{
   content: "";
   width: 1px;
   height: 28px;
-  background: var(--graphite-3);
-}
-@media (max-width: 600px){
-  .hero-content{ max-width: 100%; }
+  background: var(--fg-faint);
 }
 .statement{
   padding-top: var(--section-space);
@@ -464,10 +441,8 @@ html.reduced-motion .lightbox{ transition: none; }
   </div>
 </nav>
 <header class="hero" id="top">
-  <img class="hero-img" src="images/hero.jpg" width="2400" height="1350" alt="Two children crouching at the base of Rodin's The Thinker statue in an outdoor museum courtyard." loading="eager" fetchpriority="high">
-  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1>Mattia Schiavon's Art Portfolio</h1>
+    <h1>Mattia's Art Portfolio</h1>
     <p>Drawings, Summer 2026</p>
   </div>
   <div class="hero-scroll" aria-hidden="true">
