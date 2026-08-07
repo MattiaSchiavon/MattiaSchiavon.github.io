@@ -134,13 +134,12 @@ html.reduced-motion .site-nav{ transition: none; }
 .nav-links span{ color: var(--fg-faint); }
 .hero{
   position: relative;
-  min-height: 72vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-block: 120px 80px;
+  padding-block: 88px 24px;
 }
 .hero-content{
   position: relative;
@@ -166,28 +165,8 @@ html.reduced-motion .site-nav{ transition: none; }
   text-transform: uppercase;
   color: var(--fg-muted);
 }
-.hero-scroll{
-  position: relative;
-  margin-top: 56px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-label);
-  font-size: var(--fs-label);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-}
-.hero-scroll::after{
-  content: "";
-  width: 1px;
-  height: 28px;
-  background: var(--fg-faint);
-}
 .statement{
-  padding-top: var(--section-space);
+  padding-top: 56px;
 }
 .statement-inner{
   max-width: 62ch;
@@ -431,7 +410,6 @@ html.reduced-motion .lightbox{ transition: none; }
 .lightbox-prev{ left: 8px; top: 50%; transform: translateY(-50%); font-size: 32px; }
 .lightbox-next{ right: 8px; top: 50%; transform: translateY(-50%); font-size: 32px; }
 </style>
-<base target="_blank">
 </head>
 <body>
 <nav class="site-nav" aria-label="Primary">
@@ -444,9 +422,6 @@ html.reduced-motion .lightbox{ transition: none; }
   <div class="hero-content">
     <h1>Mattia's Art Portfolio</h1>
     <p>Drawings, Summer 2026</p>
-  </div>
-  <div class="hero-scroll" aria-hidden="true">
-    <span>Scroll ⬇</span>
   </div>
 </header>
 <section class="statement wrap" id="statement">
